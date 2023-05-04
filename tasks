@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Task 1: Write a string value into the test.md file
+echo "Learn bash programming" | cat > test.md
+
+# Check the content of the test.md file
+cat test.md
+
+# Task 2: Assign the output of a command to a variable
+# Create a number of empty md files
+touch sample1.md test2.md sample3.md test4.md sample5.md test6.md sample7.md
+
+# Print the list of markdown files of the current location
+ls -la *.md
+
+# Store the list of text files in the $list variable
+list=`ls *.md`
+
+# Show the contents of the $list variable
+echo $list
+
+# Task 3: Introduce grep
+# Find out the list of text files that start with the word “test” and store them in the filter.md file
+grep test*.md $list > filter.md
+
+# Display the contents of filter.md
+cat filter.md
+
+# Task 4: Count lines
+# Count the total number of lines of the filter.md file
+wc -l filter.md
+
+# The same task using a single command with pipes
+ls *.md | grep test | wc -l
+
+# Task 5: Sort the contents of a file
+# Create a markdown file named products.md with some content
+echo -e "Mouse A4Tech 100\nMonitor DELL 120\nKeyboard Defender 200\nScanner Epson 230\nHeadphone Apple 111" > products.md
+
+# Check the content of the products.md file
+cat products.md
+
+# Sort the content of the file in ascending order based on the first column of the file
+cat products.md | sort
+
+# Sort the content of the file in descending order based on the first column of the file
+cat products.md | sort -r
+
+# Sort the content of the file in ascending order based on the third column of the file
+cat products.md | sort -k3
+
+# If you want to get more information of the sort command on the command line, type:
+man sort
+
+# Task 6: Check the contents of a file
+# Check the content of the products.txt file and print the last line from the first three lines of the products.md file
+cat products.md
+cat products.md | head -3 | tail -1
+
+# Task 7: Introducing PS
+# Show the processes for the current shell
+ps
